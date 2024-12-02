@@ -23,7 +23,8 @@ public class PaimonPolicyManager {
         }else{
             List<String> updatePermission = new ArrayList<>();
             if(checkPolicy(policies.get(0),"group","select")) {
-
+                RangerPolicy rangerPolicy = addPolicyIterm(policies.get(0), "group", Collections.singletonList("select"));
+                rangerClient.updatePolicy(RANGER_SERVICE_NAME,policyName,rangerPolicy);
             }
         }
     }
